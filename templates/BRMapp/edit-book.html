@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'CSS/BRMstyle.css' %}">
+  </head>
+  <body>
+    <div id= "header">
+      <h1>BOOK RECORD MANAGEMENT</h1>
+      <div id='nav'>
+        <a href="/BRMapp/view-books">View All</a>
+        <a href="/BRMapp/new-books">Add New</a>
+        <a href="/BRMapp/search-books">Search</a>
+        <a href="/BRMapp/logout">Logout</a>
+      </div>
+    </div>
+    <div id="main">
+      <h2>Edit book records</h2>
+      <form action="/BRMapp/edit" method="post">
+        <input type="hidden" name="bookid" value="{{book.id}}">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit"  value="save">
+      </form>
+    </div>
+
+  </body>
+</html>
